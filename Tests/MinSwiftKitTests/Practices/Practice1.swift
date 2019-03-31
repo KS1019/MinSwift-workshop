@@ -61,7 +61,10 @@ func sayHello() {
         XCTAssertEqual(parser.peek(1).tokenKind, .leftParen)
         XCTAssertEqual(parser.peek(2).tokenKind, .rightParen)
         XCTAssertEqual(parser.peek(8).tokenKind, .rightBrace)
+        XCTAssertEqual(parser.read().tokenKind, .identifier("sayHello"))
+        XCTAssertEqual(parser.peek().tokenKind, .leftParen)
+        XCTAssertEqual(parser.peek(1).tokenKind, .rightParen)
 
-        XCTAssertEqual(parser.currentToken.tokenKind, .funcKeyword)
+        XCTAssertEqual(parser.currentToken.tokenKind, .identifier("sayHello"))
     }
 }
